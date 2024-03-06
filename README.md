@@ -58,21 +58,35 @@
 - 验证时，从redis中取value，然后将它与用户的输入进行比较
 
 ## JMeter测试
-测试设置：每次测试的并发线程数为10000，并发循环次数为10
-
+测试设置：每次测试的并发线程数为1000，并发循环次数为10，一共10000个请求
+<div align=center><img width=60% src ="./img/1.png"/></div>
 
 #### 商品列表接口测试
 这个接口做了页面缓存的优化，对比结果如下
 
-优化前：
-优化后：
+优化前的测试结果:
+<div align=center><img width=90% src ="./img/2.png"/></div>
+
+优化后的测试结果:
+<div align=center><img width=90% src ="./img/3.png"/></div>
+
+优化前：925.6/sec
+
+优化后：5390.8/sec
 
 #### 秒杀接口测试
 这个接口做了对象缓存+页面静态化+redis预减库存+内存标记+rabbitmq异步下单等性能优化，对比结果如下
 
-优化前：
-优化后：
+优化前的测试结果:
+<div align=center><img width=90% src ="./img/4.png"/></div>
+
+优化后的测试结果:
+<div align=center><img width=90% src ="./img/5.png"/></div>
+
+优化前：513.8/sec
+
+优化后：2449.8/sec
 
 #### 页面静态化测试
 访问经过页面静态化的商品详情页，可以发现静态资源已经缓存到浏览器中
-
+<div align=center><img width=100% src ="./img/6.png"/></div>
